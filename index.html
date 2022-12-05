@@ -1,15 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
+<style>
+
+
+html {
+    background-image: url(https://wallpapercave.com/wp/wp5076799.jpg);
+    background-size: 1920px;
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 5%;
+}
+
+.container * {
+    font-family: 'Calibri';
+    color: white;
+}
+
+#weather {
+    font-size: 4rem;
+    font-weight: 900;
+    text-shadow: 0.2rem 0.2rem black
+}
+
+#city {
+    font-size: 2rem;
+    padding-top: 0.5vh;
+    padding-bottom: 1.5vh;
+    text-shadow: 0.2rem 0.2rem black
+}
+
+#date, #time {
+    font-size: 1.2rem;
+    font-weight: 900;
+    text-shadow: 0.2rem 0.2rem black
+}
+
+#temp {
+    padding-top: 2vh;
+    font-size: 5rem;
+    text-shadow: 0.2rem 0.2rem black
+}
+
+</style>
 <body>
 
-    <div class="weather" id="weather"></div>
-    <div class="temp" id="temp">
+    <div class="container">
+        <div class="weather" id="weather"></div>
+        <div class="city" id="city">Somerville, Ohio</div>
+        <div class="date" id="date"></div>
+        <div class="time" id="time"></div>
+        <div class="temp" id="temp"></div>
     </div>
 
 </body>
@@ -37,12 +91,38 @@ async function getapi(url) {
    currentTemp = Math.round(data.current.temp);
    currentWeather = data.current.weather[0].description;
 
+   let words = currentWeather.split(" ");
+
+   for (let i = 0; i < words.length; i++) {
+    words[i] = words[i][0].toUpperCase() + words[i].substr(1);
+   }
+
+   let finalWeather = words.join(" ");
+
 
     let tempDiv = document.getElementById('temp').innerHTML = (currentTemp) + " °F";
-    let weatherDiv = document.getElementById('weather').innerHTML = currentWeather;
+    let weatherDiv = document.getElementById('weather').innerHTML = finalWeather;
+}
+
+function calcTime(offset) {
+    let date = new Date();
+    let utc = date.getTime() + (date.getTimezoneOffset() * 60000);
+    let newDate = new Date(utc + (3600000 * offset));
+    let newDateText = newDate.toString();
+    let words = newDateText.split(" ");
+    console.log(words[0])
+    let day = words[0] + " " + words[1] + " " + words[2] + " " + words[3];
+    let time = new Date();
+    let newTime = (time.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }));
+
+    let dayDiv = document.getElementById('date').innerHTML = day;
+    let timeDiv = document.getElementById('time').innerHTML = newTime;
+
+
 }
 
 getapi(api_url)
+calcTime(-5)
 
 </script>
 </html>
