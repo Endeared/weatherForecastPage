@@ -112,3 +112,27 @@ html {
     align-items: middle;
     text-align: center;
 }
+
+.day {
+    font-family: 'Calibri';
+    color: white;
+    font-size: 2rem;
+    font-weight: 900;
+    text-shadow: 0.1rem 0.1rem black
+}
+
+.high {
+    font-family: 'Calibri';
+    color: white;
+    font-size: 3rem;
+    font-weight: 900;
+    text-shadow: 0.1rem 0.1rem black
+}
+
+.low {
+    font-family: 'Calibri';
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 900;
+    text-shadow: 0.1rem 0.1rem black
+}

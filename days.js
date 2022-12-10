@@ -33,18 +33,21 @@ async function getapi2(url) {
 
    let maxTemp2 = Math.round(data.daily[1].temp.max);
    let minTemp2 = Math.round(data.daily[1].temp.min);
-//    let day2Div = document.getElementById('day2').innerHTML = maxTemp2 + " " +  minTemp2 + " " + (calculateDay(1));
    let day1Day = document.getElementById('day1Day').innerHTML = (calculateDay(1));
-   let day1High = document.getElementById('day1High').innerHTML = maxTemp2;
-   let day1Low = document.getElementById('day1Low').innerHTML = minTemp2;
+   let day1High = document.getElementById('day1High').innerHTML = maxTemp2 + " °F";
+   let day1Low = document.getElementById('day1Low').innerHTML = minTemp2 + " °F";
 
    let maxTemp3 = Math.round(data.daily[2].temp.max);
    let minTemp3 = Math.round(data.daily[2].temp.min);
-   let day3Div = document.getElementById('day3').innerHTML = maxTemp3 + " " +  minTemp3 + " " + (calculateDay(2));
+   let day2Day = document.getElementById('day2Day').innerHTML = (calculateDay(2));
+   let day2High = document.getElementById('day2High').innerHTML = maxTemp3 + " °F";
+   let day2Low = document.getElementById('day2Low').innerHTML = minTemp3 + " °F";
 
    let maxTemp4 = Math.round(data.daily[3].temp.max);
    let minTemp4 = Math.round(data.daily[3].temp.min);
-   let day4Div = document.getElementById('day4').innerHTML = maxTemp4 + " " +  minTemp4 + " " + (calculateDay(3));
+   let day3Day = document.getElementById('day3Day').innerHTML = (calculateDay(2));
+   let day3High = document.getElementById('day3High').innerHTML = maxTemp3 + " °F";
+   let day3Low = document.getElementById('day3Low').innerHTML = minTemp3 + " °F";
 
    let maxTemp5 = Math.round(data.daily[4].temp.max);
    let minTemp5 = Math.round(data.daily[4].temp.min);
