@@ -51,19 +51,27 @@ async function getapi2(url) {
 
    let maxTemp5 = Math.round(data.daily[4].temp.max);
    let minTemp5 = Math.round(data.daily[4].temp.min);
-   let day5Div = document.getElementById('day5').innerHTML = maxTemp5 + " " +  minTemp5 + " " + (calculateDay(4));
+   let day4Day = document.getElementById('day3Day').innerHTML = (calculateDay(3));
+   let day4High = document.getElementById('day3High').innerHTML = maxTemp4 + " °F";
+   let day4Low = document.getElementById('day3Low').innerHTML = minTemp4 + " °F";
 
    let maxTemp6 = Math.round(data.daily[5].temp.max);
    let minTemp6 = Math.round(data.daily[5].temp.min);
-   let day6Div = document.getElementById('day6').innerHTML = maxTemp6 + " " +  minTemp6 + " " + (calculateDay(5));
+   let day3Day = document.getElementById('day3Day').innerHTML = (calculateDay(3));
+   let day3High = document.getElementById('day3High').innerHTML = maxTemp4 + " °F";
+   let day3Low = document.getElementById('day3Low').innerHTML = minTemp4 + " °F";
 
    let maxTemp7 = Math.round(data.daily[6].temp.max);
    let minTemp7 = Math.round(data.daily[6].temp.min);
-   let day7Div = document.getElementById('day7').innerHTML = maxTemp7 + " " +  minTemp7 + " " + (calculateDay(6));
+   let day3Day = document.getElementById('day3Day').innerHTML = (calculateDay(3));
+   let day3High = document.getElementById('day3High').innerHTML = maxTemp4 + " °F";
+   let day3Low = document.getElementById('day3Low').innerHTML = minTemp4 + " °F";
 
    let maxTemp8 = Math.round(data.daily[7].temp.max);
    let minTemp8 = Math.round(data.daily[7].temp.min);
-   let day8Div = document.getElementById('day8').innerHTML = maxTemp8 + " " +  minTemp8 + " " + (calculateDay(7));
+   let day3Day = document.getElementById('day3Day').innerHTML = (calculateDay(3));
+   let day3High = document.getElementById('day3High').innerHTML = maxTemp4 + " °F";
+   let day3Low = document.getElementById('day3Low').innerHTML = minTemp4 + " °F";
 
 }
 
