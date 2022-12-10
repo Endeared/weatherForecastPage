@@ -45,9 +45,9 @@ async function getapi2(url) {
 
    let maxTemp4 = Math.round(data.daily[3].temp.max);
    let minTemp4 = Math.round(data.daily[3].temp.min);
-   let day3Day = document.getElementById('day3Day').innerHTML = (calculateDay(2));
-   let day3High = document.getElementById('day3High').innerHTML = maxTemp3 + " °F";
-   let day3Low = document.getElementById('day3Low').innerHTML = minTemp3 + " °F";
+   let day3Day = document.getElementById('day3Day').innerHTML = (calculateDay(3));
+   let day3High = document.getElementById('day3High').innerHTML = maxTemp4 + " °F";
+   let day3Low = document.getElementById('day3Low').innerHTML = minTemp4 + " °F";
 
    let maxTemp5 = Math.round(data.daily[4].temp.max);
    let minTemp5 = Math.round(data.daily[4].temp.min);
