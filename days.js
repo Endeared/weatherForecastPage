@@ -33,9 +33,12 @@ async function getapi2(url) {
 
    let maxTemp2 = Math.round(data.daily[1].temp.max);
    let minTemp2 = Math.round(data.daily[1].temp.min);
+   let weatherIcon1 = data.daily[1].weather[0].icon;
+   let weather1 = 'http://openweathermap.org/img/w/' + weatherIcon1 + '.png'
    let day1Day = document.getElementById('day1Day').innerHTML = (calculateDay(1));
    let day1High = document.getElementById('day1High').innerHTML = maxTemp2 + " °F";
    let day1Low = document.getElementById('day1Low').innerHTML = minTemp2 + " °F";
+   let img1 = document.getElementById('pic1').src=weather1
 
    let maxTemp3 = Math.round(data.daily[2].temp.max);
    let minTemp3 = Math.round(data.daily[2].temp.min);
