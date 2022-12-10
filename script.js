@@ -4,6 +4,7 @@ let lon = 84.6401
 
 const api_url = "https://api.openweathermap.org/data/3.0/onecall?lat=39.56&lon=-84.64&exclude=minutely,hourly,daily,alerts&units=imperial&appid=38dff5928012cd8d29f11dc1b4f7b2c6"
 
+
 // Defining async function
 async function getapi(url) {
 

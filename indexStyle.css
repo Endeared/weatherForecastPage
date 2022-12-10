@@ -94,3 +94,21 @@ html {
         0%{opacity:0;}
         100%{opacity:1;}
     }
+
+
+.daily {
+    padding-top: 25vh;
+    gap: 5vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: middle;
+}
+
+.days {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: middle;
+    text-align: center;
+}
