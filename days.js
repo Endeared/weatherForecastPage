@@ -47,37 +47,52 @@ async function getapi2(url) {
    let day2Day = document.getElementById('day2Day').innerHTML = (calculateDay(2));
    let day2High = document.getElementById('day2High').innerHTML = maxTemp3 + " °F";
    let day2Low = document.getElementById('day2Low').innerHTML = minTemp3 + " °F";
-   let img2 = document.getElementById('pic2').src=weather1
+   let img2 = document.getElementById('pic2').src=weather2
 
    let maxTemp4 = Math.round(data.daily[3].temp.max);
    let minTemp4 = Math.round(data.daily[3].temp.min);
    let day3Day = document.getElementById('day3Day').innerHTML = (calculateDay(3));
    let day3High = document.getElementById('day3High').innerHTML = maxTemp4 + " °F";
    let day3Low = document.getElementById('day3Low').innerHTML = minTemp4 + " °F";
+   let weatherIcon3 = data.daily[3].weather[0].icon;
+   let weather3 = 'http://openweathermap.org/img/w/' + weatherIcon3 + '.png'
+   let img3 = document.getElementById('pic3').src=weather3
 
    let maxTemp5 = Math.round(data.daily[4].temp.max);
    let minTemp5 = Math.round(data.daily[4].temp.min);
    let day4Day = document.getElementById('day4Day').innerHTML = (calculateDay(4));
    let day4High = document.getElementById('day4High').innerHTML = maxTemp5 + " °F";
    let day4Low = document.getElementById('day4Low').innerHTML = minTemp5 + " °F";
+   let weatherIcon4 = data.daily[4].weather[0].icon;
+   let weather4 = 'http://openweathermap.org/img/w/' + weatherIcon4 + '.png'
+   let img4 = document.getElementById('pic4').src=weather4
 
    let maxTemp6 = Math.round(data.daily[5].temp.max);
    let minTemp6 = Math.round(data.daily[5].temp.min);
    let day5Day = document.getElementById('day5Day').innerHTML = (calculateDay(5));
    let day5High = document.getElementById('day5High').innerHTML = maxTemp6 + " °F";
    let day5Low = document.getElementById('day5Low').innerHTML = minTemp6 + " °F";
+   let weatherIcon5 = data.daily[5].weather[0].icon;
+   let weather5 = 'http://openweathermap.org/img/w/' + weatherIcon5 + '.png'
+   let img5 = document.getElementById('pic5').src=weather5
 
    let maxTemp7 = Math.round(data.daily[6].temp.max);
    let minTemp7 = Math.round(data.daily[6].temp.min);
    let day6Day = document.getElementById('day6Day').innerHTML = (calculateDay(6));
    let day6High = document.getElementById('day6High').innerHTML = maxTemp7 + " °F";
    let day6Low = document.getElementById('day6Low').innerHTML = minTemp7 + " °F";
+   let weatherIcon6 = data.daily[6].weather[0].icon;
+   let weather6 = 'http://openweathermap.org/img/w/' + weatherIcon6 + '.png'
+   let img6 = document.getElementById('pic6').src=weather6
 
    let maxTemp8 = Math.round(data.daily[7].temp.max);
    let minTemp8 = Math.round(data.daily[7].temp.min);
    let day7Day = document.getElementById('day7Day').innerHTML = (calculateDay(7));
    let day7High = document.getElementById('day7High').innerHTML = maxTemp8 + " °F";
    let day7Low = document.getElementById('day7Low').innerHTML = minTemp8 + " °F";
+   let weatherIcon7 = data.daily[7].weather[0].icon;
+   let weather7 = 'http://openweathermap.org/img/w/' + weatherIcon7 + '.png'
+   let img7 = document.getElementById('pic7').src=weather7
 
 }
 
