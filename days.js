@@ -1,5 +1,6 @@
 // api url
 const api_url2 = "https://api.openweathermap.org/data/3.0/onecall?lat=39.56&lon=-84.64&exclude=current,minutely,hourly,alerts&units=imperial&appid=38dff5928012cd8d29f11dc1b4f7b2c6"
+const london = "https://api.openweathermap.org/data/2.5/weather?q=London&APPID=38dff5928012cd8d29f11dc1b4f7b2c6"
 
 // Defining async function
 async function getapi2(url) {
