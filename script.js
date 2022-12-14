@@ -29,9 +29,7 @@ async function getCity(url) {
     coordLon = data.coord.lon;
     coordLat = data.coord.lat;
 
-    const cityForecast_url = `https://api.openweathermap.org/data/3.0/onecall?lat=${coordLat}&lon=${coordLon}&exclude=minutely,hourly,daily,alerts&units=imperial&appid=38dff5928012cd8d29f11dc1b4f7b2c6`
-
-
+    let cityForecast_url = `https://api.openweathermap.org/data/3.0/onecall?lat=${coordLat}&lon=${coordLon}&exclude=current,minutely,hourly,alerts&units=imperial&appid=38dff5928012cd8d29f11dc1b4f7b2c6`
     let words = currentWeather.split(" ");
 
     for (let i = 0; i < words.length; i++) {
@@ -39,12 +37,20 @@ async function getCity(url) {
     }
 
     let finalWeather = words.join(" ");
+    let offset = data.timezone;
 
 
     let tempDiv = document.getElementById('temp').innerHTML = (currentTemp) + " °F";
     let weatherDiv = document.getElementById('weather').innerHTML = finalWeather;
+
+    newApi(cityForecast_url, offset)
 }
 
+function newApi(urlForecast, tzOffset) {
+    getapi(urlForecast)
+    getapi2(urlForecast)
+    calcTime2(tzOffset)
+}
 
 async function getapi(url) {
 
@@ -69,34 +75,80 @@ async function getapi(url) {
 
 
 function calcTime(offset) {
-    let date = new Date();
-    let utc = date.getTime() + (date.getTimezoneOffset() * 60000);
-    let newDate = new Date(utc + (3600000 * offset));
+    date = new Date();
+    localTime = date.getTime()
+    localOffset = date.getTimezoneOffset() * 60000
+    utc = localTime + localOffset
+    var city = utc + (1000 * offset)
+    newDate = new Date(city);
     let newDateText = newDate.toString();
     let words = newDateText.split(" ");
-    console.log(words[0])
     let day = words[0] + " " + words[1] + " " + words[2] + " " + words[3];
+    let nums = words[4].split(":")
+    nums.pop();
+    if (nums[0] >= 12) {
+        let amOrPm = "PM"
+        if (nums[0] > 12) {
+            nums[0] = nums[0] - 12
+            let final = nums.join(":") + " " + amOrPm
+            console.log(final)
+            timeDiv = document.getElementById('time').innerHTML = final;
+        }
+    } else {
+        let amOrPm = "AM"
+        let final = nums.join(":") + " " + amOrPm
+        console.log(final)
+        timeDiv = document.getElementById('time').innerHTML = final;
+    }
+    let time2 = words[4];
     let time = new Date();
-    let newTime = (time.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }));
-
-    let dayDiv = document.getElementById('date').innerHTML = day;
-    let timeDiv = document.getElementById('time').innerHTML = newTime;
 
 
+    dayDiv = document.getElementById('date').innerHTML = day;
+    // timeDiv = document.getElementById('time').innerHTML = time2;
 }
 
+function calcTime2(offset) {
+    date = new Date();
+    localTime = date.getTime()
+    localOffset = date.getTimezoneOffset() * 60000
+    utc = localTime + localOffset
+    var city = utc + (1000 * offset)
+    newDate = new Date(city);
+    let newDateText = newDate.toString();
+    let words = newDateText.split(" ");
+    let day = words[0] + " " + words[1] + " " + words[2] + " " + words[3];
+    let nums = words[4].split(":")
+    nums.pop();
+    // if (nums[0] >= 12) {
+    //     let amOrPm = "PM"
+    //     if (nums[0] > 12) {
+    //         nums[0] = nums[0] - 12
+    //         let final = nums.join(":") + " " + amOrPm
+    //         console.log(final)
+    //         timeDiv = document.getElementById('time').innerHTML = final;
+    //     }
+    // } else {
+    //     let amOrPm = "AM"
+    //     let final = nums.join(":") + " " + amOrPm
+    //     console.log(final)
+    //     timeDiv = document.getElementById('time').innerHTML = final;
+    // }
+    let time2 = words[4];
+    let time = new Date();
 
 
-const api_url2 = "https://api.openweathermap.org/data/3.0/onecall?lat=39.56&lon=-84.64&exclude=current,minutely,hourly,alerts&units=imperial&appid=38dff5928012cd8d29f11dc1b4f7b2c6"
-const london = "https://api.openweathermap.org/data/2.5/weather?q=London&APPID=38dff5928012cd8d29f11dc1b4f7b2c6"
+    dayDiv = document.getElementById('date').innerHTML = day;
+}
 
-// Defining async function
+let api_url2 = `https://api.openweathermap.org/data/3.0/onecall?lat=39.56&lon=-84.64&exclude=current,minutely,hourly,alerts&units=imperial&appid=38dff5928012cd8d29f11dc1b4f7b2c6`
+
+
+
 async function getapi2(url) {
 
-    // Storing response
     const response = await fetch(url);
 
-    // Storing data in form of JSON
     var data = await response.json();
     const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
@@ -187,4 +239,4 @@ async function getapi2(url) {
 
 getapi2(api_url2)
 getapi(api_url)
-calcTime(-5)
+calcTime(-18000)

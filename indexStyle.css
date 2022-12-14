@@ -44,7 +44,7 @@ html, body {
 }
 
 #temp {
-    padding-top: 2vh;
+    padding-top: 0vh;
     font-size: 5rem;
     text-shadow: 0.2rem 0.2rem black
 }
@@ -131,21 +131,36 @@ html, body {
     font-weight: 900;
     text-shadow: 0.1rem 0.1rem black;
     color: rgb(255, 255, 255);
-    font-family: 'Calibri'
+    font-family: 'Calibri';
+    opacity: 0%;
+    animation-fill-mode: forwards;
+    animation: opacity 3s forwards;
+    animation-delay: 2s;
 }
+    @keyframes opacity {
+        0%{opacity:0;}
+        100%{opacity:1;}
+    }
 
 .search {
     display: flex;
-    width: 10%;
+    width: 15%;
     padding-top: 1vh;
     padding-bottom: 1vh;
     color: white;
-    text-shadow: 0.1rem 0.1rem black;
+    text-shadow: 0.05rem 0.05rem black;
+    box-shadow: 0px 0px 10px blue;
     margin-top: 1vh;
     background-color:rgba(116, 116, 116, 0.3);
     border: none;
     border-radius: 10px;
     text-align: center;
+    transition: 0.2s ease-out;
+}
+
+.search:hover, .search:active, .search:focus {
+    transition: 0.2s ease-out;
+    size: 125%;
 }
 
 .days {
