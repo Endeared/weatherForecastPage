@@ -10,13 +10,6 @@ html, body {
     overflow: hidden;
 }
 
-body {
-    background-color: rgba(59, 59, 62, 0.526);
-    padding-bottom: 10vh;
-    padding-top: 0vh;
-    border-radius: 20%;
-    border: 5px solid black;
-}
 
 .container {
     display: flex;
@@ -87,6 +80,17 @@ body {
 }
 
 #temp {
+    opacity: 0%;
+    animation-fill-mode: forwards;
+    animation: opacity 3s forwards;
+    animation-delay: 2s;
+}
+    @keyframes opacity {
+        0%{opacity:0;}
+        100%{opacity:1;}
+    }
+
+.daily {
     opacity: 0%;
     animation-fill-mode: forwards;
     animation: opacity 3s forwards;

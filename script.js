@@ -4,10 +4,43 @@ let lon = 84.6401
 
 const api_url = "https://api.openweathermap.org/data/3.0/onecall?lat=39.56&lon=-84.64&exclude=minutely,hourly,daily,alerts&units=imperial&appid=38dff5928012cd8d29f11dc1b4f7b2c6"
 
-
 // Defining async function
-let searchBar = document.createElement("input")
+let searchBar = document.getElementById('search');
+searchBar.setAttribute("onkeydown", "search(this)");
 
+function search(ele) {
+    if(event.key == 'Enter') {
+        console.log(ele.value)
+        cityInput = ele.value;
+        const city_url = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput}&units=imperial&APPID=38dff5928012cd8d29f11dc1b4f7b2c6`
+        getCity(city_url);
+    }
+}
+
+
+async function getCity(url) {
+
+    // Storing response
+    const response = await fetch(url);
+
+    // Storing data in form of JSON
+    var data = await response.json();
+   /*  console.log(data); */
+   currentTemp = Math.round(data.main.temp);
+   currentWeather = data.weather[0].main;
+
+   let words = currentWeather.split(" ");
+
+   for (let i = 0; i < words.length; i++) {
+    words[i] = words[i][0].toUpperCase() + words[i].substr(1);
+   }
+
+   let finalWeather = words.join(" ");
+
+
+    let tempDiv = document.getElementById('temp').innerHTML = (currentTemp) + " °F";
+    let weatherDiv = document.getElementById('weather').innerHTML = finalWeather;
+}
 
 async function getapi(url) {
 
@@ -17,9 +50,6 @@ async function getapi(url) {
     // Storing data in form of JSON
     var data = await response.json();
    /*  console.log(data); */
-   console.log(data.current.temp);
-   console.log(data.current.humidity)
-   console.log(data.current.weather[0].description);
    currentTemp = Math.round(data.current.temp);
    currentWeather = data.current.weather[0].description;
 
