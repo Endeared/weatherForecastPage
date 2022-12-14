@@ -118,6 +118,32 @@ body {
     align-items: middle;
 }
 
+.searchLoc {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: 900;
+    text-shadow: 0.1rem 0.1rem black;
+    color: rgb(255, 255, 255);
+    font-family: 'Calibri'
+}
+
+.search {
+    display: flex;
+    width: 10%;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    color: white;
+    text-shadow: 0.1rem 0.1rem black;
+    margin-top: 1vh;
+    background-color:rgba(116, 116, 116, 0.3);
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+}
+
 .days {
     display: flex;
     flex-direction: column;

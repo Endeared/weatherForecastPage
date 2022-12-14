@@ -6,6 +6,9 @@ const api_url = "https://api.openweathermap.org/data/3.0/onecall?lat=39.56&lon=-
 
 
 // Defining async function
+let searchBar = document.createElement("input")
+
+
 async function getapi(url) {
 
     // Storing response
