@@ -12,8 +12,10 @@ function search(ele) {
     if (event.key == 'Enter') {
         console.log(ele.value)
         cityInput = ele.value;
+        let lower = cityInput.toLowerCase();
+        let fixed = lower.charAt(0).toUpperCase() + lower.slice(1);
         const location = document.getElementById('city');
-        location.innerHTML = cityInput;
+        location.innerHTML = fixed;
         const city_url = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput}&units=imperial&APPID=38dff5928012cd8d29f11dc1b4f7b2c6`
         getCity(city_url);
     }
